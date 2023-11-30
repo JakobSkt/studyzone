@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-
+    
     let count = 5;
     let clientId = "CoG42DU-Efb4NvooQXlL1N0F8Vq0NElbl627cTIj22c"
     let photos = []

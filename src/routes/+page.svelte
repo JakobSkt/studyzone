@@ -1,7 +1,6 @@
 <script>
     import "../app.css"
     import Calculator from "../lib/calculator.svelte";
-    import Toolview from "../lib/toolview.svelte";
 </script>
 
 <div class="hero w-screen h-screen mx-auto items-center justify-center flex">
@@ -21,8 +20,6 @@
     </div>
     
     <Calculator />
-
-    <Toolview />
 
 </div>
 
