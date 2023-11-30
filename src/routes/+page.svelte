@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div class="page2 w-screen h-fit flex flex-col justify-start items-center pb-20 mb-48" id="function">
+<div class="page2 w-screen h-fit flex flex-col justify-start items-center pb-20 mb-48">
     
     <div class="w-fit h-fit p-12 mt-96 text-white">
         <h1 class="italic text-5xl ">forced analogy</h1>

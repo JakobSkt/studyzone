@@ -30,28 +30,32 @@
 </script>
 
 <main>
-    <div class="bg-zinc-800 w-full h-full mx-auto p-12 rounded-xl flex flex-col items-center text-white">
+    <div class="bg-zinc-800 w-full h-full mx-auto p-12 rounded-xl flex flex-col items-center text-white" id="function">
         {#if step == 1}
-        <h1 class="text-3xl font-bold self-start">Step 1 - tune the parameters</h1>
-        
-        <div class="flex flex-row gap-36">
-            <div class="p-4 w-fit h-fit flex flex-col gap-2 items-center">
-                <span class="text-xl">Image count</span>
-                <h1 class="text-3xl font-black text-gray-600"> {imageCount} </h1>
-                <input class="accent-pink-700" type="range" bind:value={imageCount} min="10" max="100"/>
-            </div>
-            <div class="p-4 w-fit h-fit flex flex-col gap-2 items-center">
-                <span class="text-xl">Image screen-time</span>
-                <h1 class="text-3xl font-black text-gray-600"> {imageTime} sec</h1>
-                <input class="accent-pink-700" type="range" bind:value={imageTime} min="10" max="60"/>
-            </div>
-            <div class="p-4 w-fit h-fit flex flex-col gap-2 items-center">
-                <span class="text-xl">Total time</span>
+        <div class="flex flex-row w-full h-fit items-center justify-evenly">
+            <h1 class="text-3xl font-bold">Step 1 - tune the parameters</h1>
+            <div class="bg-zinc-900 px-12 py-2 rounded-md text-center">
+                <span class="">Total time</span>
                 <h1 class="text-3xl font-black w-28 text-center"> {total} min </h1>
             </div>
         </div>
+        
+        
+        <div class="flex flex-row gap-16 items-center">
+            <div class="bg-zinc-900 px-8 py-12 rounded-md mt-8 text-center">
+                <span class="text-xl">Image count</span>
+                <h1 class="text-3xl font-black text-gray-600"> {imageCount} </h1>
+                <input class="accent-amber-500 p-2" type="range" bind:value={imageCount} min="10" max="100"/>
+            </div>
+            <div class="bg-zinc-900 px-8 py-12 rounded-md mt-8 text-center">
+                <span class="text-xl">Image screen-time</span>
+                <h1 class="text-3xl font-black text-gray-600"> {imageTime} sec</h1>
+                <input class="accent-amber-500 p-2 border-sky-400" type="range" bind:value={imageTime} min="10" max="60"/>
+            </div>
+            <button class="py-16 px-8 font-bold bg-pink-700 text-white text-xl mt-8" on:click={nextStep}>Continue</button>
+            
+        </div>
 
-        <button class="p-4 mt-8 font-bold bg-orange-400 text-white w-fit h-fit" on:click={nextStep}>Continue</button>
         {:else if step == 2}
 
         <h1 class="text-3xl font-bold self-start">Step 2 - choose your topic</h1>
