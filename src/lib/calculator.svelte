@@ -105,7 +105,7 @@
     </div>
 
     {#if begin}
-        <Toolview />
+        <Toolview photoTimer={imageTime} imageCount={imageCount}/>
     {/if}
 </main>
 
