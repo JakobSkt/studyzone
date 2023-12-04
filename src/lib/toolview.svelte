@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte'
     
-    let count = 5
+    let count = -2
     let clientId = "CoG42DU-Efb4NvooQXlL1N0F8Vq0NElbl627cTIj22c"
 
     let photos = []
@@ -20,13 +20,13 @@
     let started = false
 
     async function getPhotos() {
-        let res 
+        //let res 
         if(btopic) {
             //res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&query=" + topic + + "&orientation=landscape")
         } else {
             //res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&orientation=landscape")
         }
-        //const res = await fetch("https://jsonplaceholder.typicode.com/photos")
+        const res = await fetch("https://jsonplaceholder.typicode.com/photos")
 
         const data = await res.json()
 
@@ -84,7 +84,8 @@
 
     {:else}
     <div class="fixed top-0 left-0 w-full h-full bg-zinc-800">
-        <img src={photo.urls.full} alt="" class="h-screen w-fit mx-auto">
+        <img src={photo.url} alt="" class="h-screen w-fit mx-auto">
+
         {#if paused}
             <svg class="fixed inset-0 m-auto w-48 h-48 stroke-zinc-100 opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
@@ -98,8 +99,26 @@
     </div>
 
     {#if description}
-        <div class="fixed bottom-0 right-0 mb-24 mr-8 py-8 px-16 bg-zinc-800/75 rounded-md">
-            <p class="text-xl text-zinc-200"> {photo.alt_description} - {photo.user.name} </p>
+        <div class="fixed bottom-0 right-0 mb-24 mr-4 py-8 px-16 bg-zinc-900/75 rounded-md">
+            <p class="text-xl text-zinc-200"> {photo.title}</p>
+            <div class="flex flex-col">
+                <div class="p-2 flex flex-row gap-2 text-white self-end">
+                    <span>
+                        {photo.title.split(" ")[0]}
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                </div>
+                <button class="p-2 text-white flex flex-row gap-2 self-end"> 
+                      <span>Open on Unsplash </span>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                </button>
+            </div>
+            
         </div>
     {/if}
 

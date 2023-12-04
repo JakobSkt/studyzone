@@ -13,7 +13,7 @@
     
     let begin = false;
 
-    let step = 1;
+    let step = 8;
 
     let active = true;
     let translate = false;
