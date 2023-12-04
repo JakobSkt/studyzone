@@ -13,12 +13,21 @@
     export let photoTimer
     let timer = photoTimer
 
+    export let btopic
+    export let topic
+
     let description = false
     let started = false
 
-    async function getPhotos(c, q) {
-        //const res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=2")
-        const res = await fetch("https://jsonplaceholder.typicode.com/photos")
+    async function getPhotos() {
+        let res 
+        if(btopic) {
+            //res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&query=" + topic + + "&orientation=landscape")
+        } else {
+            //res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&orientation=landscape")
+        }
+        //const res = await fetch("https://jsonplaceholder.typicode.com/photos")
+
         const data = await res.json()
 
         photos = data
