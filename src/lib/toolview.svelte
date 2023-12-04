@@ -18,7 +18,7 @@
 
     async function getPhotos(c, q) {
         //const res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=2")
-        //const res = await fetch("https://jsonplaceholder.typicode.com/photos")
+        const res = await fetch("https://jsonplaceholder.typicode.com/photos")
         const data = await res.json()
 
         photos = data
@@ -89,7 +89,7 @@
     </div>
 
     {#if description}
-        <div class="fixed bottom-0 left-0 w-screen mx-auto my-4 text-center ">
+        <div class="fixed bottom-0 right-0 mb-24 mr-8 py-8 px-16 bg-zinc-800/75 rounded-md">
             <p class="text-xl text-zinc-200"> {photo.alt_description} - {photo.user.name} </p>
         </div>
     {/if}
