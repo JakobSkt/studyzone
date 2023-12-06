@@ -2,18 +2,18 @@
     import "../app.css"
     import Toolview from "../lib/toolview.svelte";
 
-
     let imageCount = 20;
     let imageTime = 30;
     let topic = "";
     let specificTopic = false;
 
     let orientation = ""
+    let borientation = false
     $: console.log(step)
     
     let begin = false;
 
-    let step = 8;
+    let step = 1;
 
     let active = true;
     let translate = false;
@@ -166,11 +166,11 @@
     </div>
 
     {#if begin}
-        <Toolview photoTimer={imageTime} imageCount={imageCount} btopic={specificTopic} topic={topic}/>
+        <Toolview photoTimer={imageTime} imageCount={imageCount} btopic={specificTopic} topic={topic} orientation={orientation} begin={begin}/>
     {/if}
 </main>
 
-<style>
+<style lang="postcss">
     input {
         transition: 1.5s;
     }
