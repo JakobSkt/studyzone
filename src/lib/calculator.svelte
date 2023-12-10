@@ -1,22 +1,24 @@
 <script>
     import "../app.css"
-    import Toolview from "../lib/toolview.svelte";
+    import { goto } from '$app/navigation';
+    import { imageTime } from '../lib/store.js'
 
-    let imageCount = 20;
-    let imageTime = 30;
-    let topic = "";
-    let specificTopic = false;
+
+    let imageCount = 20 
+    let topic = ""
+    let specificTopic = false
 
     let orientation = ""
     let borientation = false
-    $: console.log(step)
     
-    let begin = false;
+    let begin = false
+    let bcount = false
+    let count = 5
 
-    let step = 1;
+    let step = 1
 
-    let active = true;
-    let translate = false;
+    let active = true
+    let translate = false
 
     function setOrientation(o) {
         switch (o) {
@@ -47,10 +49,34 @@
         }
     }
 
-    $: total = Math.round((imageCount*imageTime)/60);
+    function startCount() {
+        bcount = true
+        if(topic == "") {
+            topic = "random"
+        }
+        const countdown = setInterval(() => {
+            if(count < 1) {
+                bcount = false
+                //goto(`/active/${imageCount}x${topic}x${orientation}`)
+            } else {
+                count = count - 1
+            }
+        }, 1000)
+    }
+
+    $: total = Math.round((imageCount*$imageTime)/60);
 </script>
 
 <main>
+    {#if bcount}
+        <div class="fixed top-0 left-0 w-full h-full bg-zinc-800 opacity-90">
+            <div class="w-screen h-screen flex flex-col items-center justify-center text-center -mt-48">
+                <span class="text-3xl font-bold text-zinc-900"> Countdown </span>
+                <h1 class="text-9xl font-black text-white">{count}</h1>
+            </div>
+        </div>
+    {/if}
+    
     <div class="bg-zinc-800 w-full h-full mx-auto p-12 rounded-xl flex flex-col items-center text-white" id="function">
         {#if step == 1}
         <div class="flex flex-row w-full h-fit items-center justify-evenly">
@@ -70,8 +96,8 @@
             </div>
             <div class="bg-zinc-900 px-8 py-12 rounded-md mt-8 text-center">
                 <span class="text-xl">Image screen-time</span>
-                <h1 class="text-3xl font-black text-gray-600"> {imageTime} sec</h1>
-                <input class="accent-amber-500 p-2 border-sky-400" type="range" bind:value={imageTime} min="10" max="60"/>
+                <h1 class="text-3xl font-black text-gray-600"> {$imageTime} sec</h1>
+                <input class="accent-amber-500 p-2 border-sky-400" type="range" bind:value={$imageTime} min="10" max="120" step="10"/>
             </div>
             <button class="py-16 px-8 font-bold bg-pink-700 text-white text-xl mt-8" on:click={nextStep}>Continue</button>
             
@@ -141,7 +167,7 @@
             <div class="bg-zinc-900 px-8 py-12 rounded-md mt-8 text-cente" on:click={nextStep}>
                 <span class="text-xl  text-gray-600">Image selections</span>
                 <p class="text-xl font-bold text-zinc-300"> {imageCount} images  </p>
-                <p class="text-xl font-bold text-zinc-300"> {imageTime} seconds  </p>
+                <p class="text-xl font-bold text-zinc-300"> {$imageTime} seconds  </p>
                 <h1 class="text-3xl font-black drop-shadow-xl text-center"> {total} minutes </h1>
             </div>
 
@@ -155,7 +181,7 @@
                 {/if}
             </div>
 
-            <button on:click={() => begin = true} class="hover:scale-110 transition drop-shadow-sm">
+            <button on:click={startCount} class="hover:scale-110 transition drop-shadow-sm">
 
                 <svg class="w-28 h-28 stroke-pink-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -164,10 +190,6 @@
         </div>
         {/if}
     </div>
-
-    {#if begin}
-        <Toolview photoTimer={imageTime} imageCount={imageCount} btopic={specificTopic} topic={topic} orientation={orientation} begin={begin}/>
-    {/if}
 </main>
 
 <style lang="postcss">

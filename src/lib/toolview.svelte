@@ -1,51 +1,38 @@
 <script>
     import { onMount } from 'svelte'
+    import { goto } from '$app/navigation';
     
-    export let begin
+    export let data
     let count = 5
-    let clientId = "CoG42DU-Efb4NvooQXlL1N0F8Vq0NElbl627cTIj22c"
+    let unsplashRef = "?utm_source=sparks&utm_medium=referral"
 
     let photos = []
     let photo = {}
     let photoId = 0
-    export let imageCount
 
     let paused = false
     export let photoTimer
     let timer = photoTimer
 
-    export let btopic
-    export let topic
-
-    export let orientation
-
     let description = false
     let started = false
 
-    async function getPhotos() {
-        let res
+    $: photos = data.photos
+    $: photo = photos[photoId]
 
-        if(btopic) {
-            res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&query=" + topic + "&orientation=" + (orientation != "nopref" ? orientation : ""))
-        } else {
-            res = await fetch("https://api.unsplash.com/photos/random?client_id=" + clientId + "&count=" + imageCount + "&orientation=" + (orientation != "nopref" ? orientation : ""))
-        }
-        //const res = await fetch("https://jsonplaceholder.typicode.com/photos")
-
-        const data = await res.json()
-
-        photos = data
-        //console.log(photos[photoId].url)
-        photo = photos[photoId]
+    function getPhotos() {
+        
     }
 
     function updatePhotos() {
-        const update = setInterval(() => {
-            if(!paused) {
-                if(timer < 1) {
-                    nextPhoto()
-                } else {
-                    timer = timer - 1 
+            const update = setInterval(() => {
+            if(photoId < photos.length) {
+                if(!paused) {
+                    if(timer < 1) {
+                        nextPhoto()
+                    } else {
+                        timer = timer - 1 
+                    }
                 }
             }
         }, 1000)
@@ -57,37 +44,21 @@
         timer = photoTimer
     } 
 
-    onMount(async () => {
-		/*const res = await fetch(`/tutorial/api/album`);
-		photos = await res.json();*/
-        const countdown = setInterval(() => {
-            if(count < 0) {
-                if(!started) {
-                    updatePhotos()
-                    started = true
-                }
-            } else {
-                count = count - 1
-            }
-        }, 1000)
+    function goHome() {
+        paused = true
+        goto('/')
+    }
 
-        await getPhotos()
-        
-	});
+    onMount(() => {
+        updatePhotos()
+    })
 
 </script>
 
 <main>
-    {#if count >= 0}
-    <div class="fixed top-0 left-0 w-full h-full bg-zinc-800 opacity-90">
-        <div class="w-screen h-screen flex flex-col items-center justify-center text-center -mt-48">
-            <span class="text-3xl font-bold text-zinc-900"> Countdown </span>
-            <h1 class="text-9xl font-black text-white">{count}</h1>
-        </div>
-    </div>
-
-    {:else}
+    
     <div class="fixed top-0 left-0 w-full h-full bg-zinc-800">
+    {#if photoId < photos.length}
         <img src={photo.urls.raw} alt="" class="h-screen w-fit mx-auto">
 
         {#if paused}
@@ -95,19 +66,25 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
             </svg>
         {/if}
-    
+    {:else}
+        <div class="w-full h-full m-auto flex flex-col items-center place-items-center justify-center">
+            <h1 class="text-3xl font-bold p-4 text-white"> Alle billeder vist </h1>
+            <button on:click={goHome} class="text-center py-4 px-12 bg-zinc-900 rounded drop-shadow-md text-white text-xl font-bold"> Tilbage til startsiden </button>
+        </div>
+            
+    {/if}
     </div>
 
     <div class="fixed bottom-0 left-0 flex flex-row gap-4 m-4">
         <p class="text-2xl font-bold text-zinc-200"> {timer} </p>
     </div>
 
-    <div class="fixed top-0 left-0 flex flex-row m-4 w-screen">
-        <div class="justify-self-start">
-            <p class="text-2xl font-bold text-zinc-200"><strong>{photoId}</strong> / {photos.length}</p>
+    <div class="fixed inset-x-0 top-0 flex flex-row w-full justify-between items-center">
+        <div class="m-4 text-center">
+            <p class="text-2xl font-bold text-zinc-200"><strong>{photoId+1}</strong> / <span class="text-zinc-400">{photos.length}</span></p>
         </div>
-        <button class="justify-self-end" on:click={() => begin = false}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
+        <button class="w-12 h-12 m-4 stroke-zinc-200 cursor-pointer" on:click={goHome}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
         </button>
@@ -118,7 +95,7 @@
             <p class="text-xl text-zinc-200"> {photo.alt_description ? photo.alt_description : "n/a"}</p>
             <div class="flex flex-col">
                 <div class="flex flex-row justify-between">
-                    <a class="p-2 flex flex-row gap-2 text-white self-start" href={photo.user.links.html} target="_blank">
+                    <a class="p-2 flex flex-row gap-2 text-white self-start" href={photo.user.links.html + unsplashRef} target="_blank">
                         <img src={photo.user.profile_image.small} class="w-6 h-6 rounded-full" alt="photographers unsplash profile pic"/>
                         <span> {photo.user.name ? photo.user.name : "n/a"} </span>
                     </a>
@@ -132,7 +109,7 @@
                         </svg>
                     </div>
                 </div>
-                <a class="p-2 text-white flex flex-row gap-2 self-end" href={photo.links.html} target="_blank"> 
+                <a class="p-2 text-white flex flex-row gap-2 self-end" href={photo.links.html + unsplashRef} target="_blank"> 
                       <span>Open on Unsplash </span>
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 stroke-white">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
@@ -159,8 +136,6 @@
             
             
     </div>
-
-    {/if}
 </main>
 
 <style lang="postcss">
