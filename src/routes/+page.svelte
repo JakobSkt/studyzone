@@ -32,14 +32,14 @@
     }
 
     .hero {
-        background-image: url("./layered-waves-haikei.svg");
+        background-image: url("$lib/images/layered-waves-haikei.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
     }
 
     .page2 {
-        background-image: url("./layered-waves-haikei-topdown.svg");
+        background-image: url("$lib/images/layered-waves-haikei-topdown.svg");
         background-repeat: no-repeat;
         background-size: cover;
     }
