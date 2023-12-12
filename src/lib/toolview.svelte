@@ -34,6 +34,8 @@
                         timer = timer - 1 
                     }
                 }
+            } else {
+                clearInterval(update)
             }
         }, 1000)
     }
@@ -45,7 +47,6 @@
     } 
 
     function goHome() {
-        paused = true
         goto('/')
     }
 

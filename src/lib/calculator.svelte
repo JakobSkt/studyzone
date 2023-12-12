@@ -24,6 +24,8 @@
     let activeStep3 = false
     let activeStep4 = false
 
+    
+
     function setOrientation(o) {
         switch (o) {
             case "portrait":
@@ -67,7 +69,9 @@
         const countdown = setInterval(() => {
             if(count < 1) {
                 bcount = false
-                //goto(`/active/${imageCount}x${topic}x${orientation}`)
+                count = 5
+                clearInterval(countdown)
+                goto(`/active/${imageCount}x${topic}x${orientation}`)
             } else {
                 count = count - 1
             }
@@ -75,6 +79,7 @@
     }
 
     $: total = Math.round((imageCount*$imageTime)/60);
+    $: console.log(count)
 </script>
 
 <main>
