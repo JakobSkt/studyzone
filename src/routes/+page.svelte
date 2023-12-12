@@ -8,7 +8,7 @@
         <h1 class="text-7xl font-bold text-white"><span class="text-2xl">Meet</span> Sparks</h1>
         <p class="text-lg text-amber-500 mb-8">Forced analogy the easy way</p>
 
-        <a href="#function" class="p-4 text-white font-bold bg-pink-700 drop-shadow-xl">Unleash my creativity</a>
+        <a href="#settings" class="p-4 text-white font-bold bg-pink-700 drop-shadow-xl">Unleash my creativity</a>
     </div>
 </div>
 

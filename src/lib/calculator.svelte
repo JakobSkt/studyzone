@@ -20,6 +20,10 @@
     let active = true
     let translate = false
 
+    let activeStep2 = false
+    let activeStep3 = false
+    let activeStep4 = false
+
     function setOrientation(o) {
         switch (o) {
             case "portrait":
@@ -38,8 +42,14 @@
         nextStep()
     }
 
+    function goBack(s) {
+        if(step > s) {
+            step = s
+        }
+    }
+
     function nextStep() {
-        step += step;
+        step += step
     }
     
     function handleKeypress(e) {
@@ -77,7 +87,7 @@
         </div>
     {/if}
     
-    <div class="bg-zinc-800 w-full h-full mx-auto p-12 rounded-xl flex flex-col items-center text-white" id="function">
+    <div class="bg-zinc-800 w-full h-full mx-auto p-12 rounded-xl flex flex-col items-center text-white" id="settings">
         {#if step == 1}
         <div class="flex flex-row w-full h-fit items-center justify-evenly">
             <h1 class="text-3xl font-bold">Step 1 - tune the parameters</h1>
@@ -189,6 +199,34 @@
             </button>
         </div>
         {/if}
+        <div class="w-full h-fit p-4 flex flex-row mt-12 -mb-8 items-center justify-evenly">
+            <div class="m-0 p-0">
+                <svg on:click={() => goBack(1)} class="w-6 h-6 stroke-amber-500 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                </svg>                  
+            </div>
+            <div class="m-0 p-0 flex flex-row items-center justify-between gap-12" id="step2">
+                <hr class="m-0 p-0 h-1 w-20 border-zinc-600"/>
+
+                <svg on:click={() => goBack(2)} class:activeStep={activeStep2} class="w-6 h-6 stroke-zinc-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                </svg>                
+            </div>
+            
+            <div class="m-0 p-0 flex flex-row items-center justify-between gap-12" id="step3">
+                <hr class="m-0 p-0 h-1 w-20 border-zinc-600"/>
+                <svg on:click={() => goBack(4)} class:activeStep={activeStep3} class="w-6 h-6 stroke-zinc-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>                                   
+            </div>
+            
+            <div class="m-0 p-0 flex flex-row items-center justify-between gap-12" id="step4">
+                <hr class="m-0 p-0 h-1 border-solid w-20 border-zinc-600"/>
+                <svg on:click={() => goBack(8)} class:activeStep={activeStep4}  class="w-6 h-6 stroke-zinc-600 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                  </svg>                 
+            </div>
+        </div>
     </div>
 </main>
 
@@ -200,6 +238,12 @@
     .active {
         opacity: 0;
     }
+
+    .activeStep {
+        stroke: #f59e0b!important;
+        cursor: pointer!important;
+    }
+
 
     h1 {
         transition: 500ms;
