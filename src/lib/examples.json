@@ -1,193 +1,23 @@
 [
 	{
-		"id": "sYu-jzMvBE0",
-		"slug": "a-black-and-white-photo-of-a-woman-with-long-hair-sYu-jzMvBE0",
-		"created_at": "2023-11-13T10:25:55Z",
-		"updated_at": "2023-12-01T23:46:41Z",
-		"promoted_at": "2023-11-16T18:40:01Z",
-		"width": 3836,
-		"height": 2614,
-		"color": "#262626",
-		"blur_hash": "L78XOb9F00%MxuRjIU%M00t7%MWV",
-		"description": "Torn Curtain",
-		"alt_description": "a black and white photo of a woman with long hair",
-		"breadcrumbs": [],
-		"urls": {
-			"raw": "https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3",
-			"full": "https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=85",
-			"regular": "https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=1080",
-			"small": "https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=400",
-			"thumb": "https://images.unsplash.com/photo-1699871128680-70d26ce4d3d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=200",
-			"small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1699871128680-70d26ce4d3d8"
-		},
-		"links": {
-			"self": "https://api.unsplash.com/photos/a-black-and-white-photo-of-a-woman-with-long-hair-sYu-jzMvBE0",
-			"html": "https://unsplash.com/photos/a-black-and-white-photo-of-a-woman-with-long-hair-sYu-jzMvBE0",
-			"download": "https://unsplash.com/photos/sYu-jzMvBE0/download?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8",
-			"download_location": "https://api.unsplash.com/photos/sYu-jzMvBE0/download?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8"
-		},
-		"likes": 58,
-		"liked_by_user": false,
-		"current_user_collections": [],
-		"sponsorship": null,
-		"topic_submissions": {},
-		"user": {
-			"id": "VOv_seiccCs",
-			"updated_at": "2023-11-28T23:37:05Z",
-			"username": "resat",
-			"name": "Resat Kuleli",
-			"first_name": "Resat",
-			"last_name": "Kuleli",
-			"twitter_username": null,
-			"portfolio_url": null,
-			"bio": "I use photography as a tool to express myself-to show emotions-to use art in life-and just to feel better. Therefore I don't see myself as a photographer, I am just a hobbiest.",
-			"location": "Istanbul",
-			"links": {
-				"self": "https://api.unsplash.com/users/resat",
-				"html": "https://unsplash.com/@resat",
-				"photos": "https://api.unsplash.com/users/resat/photos",
-				"likes": "https://api.unsplash.com/users/resat/likes",
-				"portfolio": "https://api.unsplash.com/users/resat/portfolio",
-				"following": "https://api.unsplash.com/users/resat/following",
-				"followers": "https://api.unsplash.com/users/resat/followers"
-			},
-			"profile_image": {
-				"small": "https://images.unsplash.com/profile-1642434020514-10c3ee3b57beimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
-				"medium": "https://images.unsplash.com/profile-1642434020514-10c3ee3b57beimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
-				"large": "https://images.unsplash.com/profile-1642434020514-10c3ee3b57beimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
-			},
-			"instagram_username": "radio_uranus_broadcasting",
-			"total_collections": 0,
-			"total_likes": 267,
-			"total_photos": 27,
-			"total_promoted_photos": 5,
-			"accepted_tos": true,
-			"for_hire": true,
-			"social": {
-				"instagram_username": "radio_uranus_broadcasting",
-				"portfolio_url": null,
-				"twitter_username": null,
-				"paypal_email": null
-			}
-		},
-		"exif": {
-			"make": "NIKON CORPORATION",
-			"model": "NIKON D700",
-			"name": "NIKON CORPORATION, NIKON D700",
-			"exposure_time": "1/250",
-			"aperture": "2.0",
-			"focal_length": "35.0",
-			"iso": 1000
-		},
-		"location": {
-			"name": null,
-			"city": null,
-			"country": null,
-			"position": {
-				"latitude": 0.0,
-				"longitude": 0.0
-			}
-		},
-		"views": 627735,
-		"downloads": 5222
+		"id": 1,
+		"title": "Vibrant LoFi",
+		"bg": "vibrantLofi.jpg",
+		"music": "Chill LoFi beats",
+		"scenery": "Landscapes and cozy scenes"
 	},
 	{
-		"id": "Zrhf6Dup-50",
-		"slug": "a-bicycle-parked-next-to-a-fence-with-leaves-on-the-ground-Zrhf6Dup-50",
-		"created_at": "2023-11-21T11:29:45Z",
-		"updated_at": "2023-12-02T01:46:33Z",
-		"promoted_at": "2023-11-25T12:32:02Z",
-		"width": 4640,
-		"height": 6960,
-		"color": "#260c0c",
-		"blur_hash": "LA9%9i%gt6adAJxvX9Rj~At7ofs-",
-		"description": null,
-		"alt_description": "a bicycle parked next to a fence with leaves on the ground",
-		"breadcrumbs": [],
-		"urls": {
-			"raw": "https://images.unsplash.com/photo-1700566070913-12fe438ffb7c?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3",
-			"full": "https://images.unsplash.com/photo-1700566070913-12fe438ffb7c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=85",
-			"regular": "https://images.unsplash.com/photo-1700566070913-12fe438ffb7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=1080",
-			"small": "https://images.unsplash.com/photo-1700566070913-12fe438ffb7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=400",
-			"thumb": "https://images.unsplash.com/photo-1700566070913-12fe438ffb7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8&ixlib=rb-4.0.3&q=80&w=200",
-			"small_s3": "https://s3.us-west-2.amazonaws.com/images.unsplash.com/small/photo-1700566070913-12fe438ffb7c"
-		},
-		"links": {
-			"self": "https://api.unsplash.com/photos/a-bicycle-parked-next-to-a-fence-with-leaves-on-the-ground-Zrhf6Dup-50",
-			"html": "https://unsplash.com/photos/a-bicycle-parked-next-to-a-fence-with-leaves-on-the-ground-Zrhf6Dup-50",
-			"download": "https://unsplash.com/photos/Zrhf6Dup-50/download?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8",
-			"download_location": "https://api.unsplash.com/photos/Zrhf6Dup-50/download?ixid=M3w1MzQxNTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MDE1MTM1NDR8"
-		},
-		"likes": 107,
-		"liked_by_user": false,
-		"current_user_collections": [],
-		"sponsorship": null,
-		"topic_submissions": {
-			"wallpapers": {
-				"status": "rejected"
-			},
-			"street-photography": {
-				"status": "rejected"
-			}
-		},
-		"user": {
-			"id": "qNjMGn7vLGs",
-			"updated_at": "2023-12-01T13:43:34Z",
-			"username": "janisringli",
-			"name": "Janis Ringli",
-			"first_name": "Janis",
-			"last_name": "Ringli",
-			"twitter_username": "Sir_Vandenhiven",
-			"portfolio_url": null,
-			"bio": "A passionate photographer based in Switzerland. Canon enjoyer:) ",
-			"location": "Switzerland",
-			"links": {
-				"self": "https://api.unsplash.com/users/janisringli",
-				"html": "https://unsplash.com/@janisringli",
-				"photos": "https://api.unsplash.com/users/janisringli/photos",
-				"likes": "https://api.unsplash.com/users/janisringli/likes",
-				"portfolio": "https://api.unsplash.com/users/janisringli/portfolio",
-				"following": "https://api.unsplash.com/users/janisringli/following",
-				"followers": "https://api.unsplash.com/users/janisringli/followers"
-			},
-			"profile_image": {
-				"small": "https://images.unsplash.com/profile-1680696817320-a6e01f70fd6aimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=32&h=32",
-				"medium": "https://images.unsplash.com/profile-1680696817320-a6e01f70fd6aimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=64&h=64",
-				"large": "https://images.unsplash.com/profile-1680696817320-a6e01f70fd6aimage?ixlib=rb-4.0.3&crop=faces&fit=crop&w=128&h=128"
-			},
-			"instagram_username": "ring.lii",
-			"total_collections": 0,
-			"total_likes": 112,
-			"total_photos": 92,
-			"total_promoted_photos": 1,
-			"accepted_tos": true,
-			"for_hire": true,
-			"social": {
-				"instagram_username": "ring.lii",
-				"portfolio_url": null,
-				"twitter_username": "Sir_Vandenhiven",
-				"paypal_email": null
-			}
-		},
-		"exif": {
-			"make": "Canon",
-			"model": " EOS R7",
-			"name": "Canon, EOS R7",
-			"exposure_time": "1/160",
-			"aperture": "2.0",
-			"focal_length": "50.0",
-			"iso": 125
-		},
-		"location": {
-			"name": null,
-			"city": null,
-			"country": null,
-			"position": {
-				"latitude": 0.0,
-				"longitude": 0.0
-			}
-		},
-		"views": 541500,
-		"downloads": 5303
+		"id": 2,
+		"title": "Dark asthetics",
+		"bg": "dark.jpg",
+		"music": "Dark beats",
+		"scenery": "Dark scenes.."
+	},
+	{
+		"id": 3,
+		"title": "Classic christmas",
+		"bg": "snowfall.jpg",
+		"music": "Classic piano",
+		"scenery": "Snowfall and christmas trees"
 	}
 ]
