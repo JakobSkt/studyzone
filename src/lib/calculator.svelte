@@ -24,8 +24,6 @@
     let activeStep3 = false
     let activeStep4 = false
 
-    
-
     function setOrientation(o) {
         switch (o) {
             case "portrait":
@@ -135,12 +133,12 @@
                 <span class="">Total time</span>
                 <h1 class="text-3xl font-black w-28 text-center"> {total} min </h1>
             </div>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3bevTxSrGdh3qShUcODtxE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
-        
         
         <div class="flex flex-row gap-16 items-center">
             <div class="bg-zinc-900 px-8 py-12 rounded-md mt-8 text-center">
-                <span class="text-xl">Image count</span>
+                <span class="text-xl">Studying time</span>
                 <h1 class="text-3xl font-black text-gray-600"> {imageCount} </h1>
                 <input class="accent-amber-500 p-2" type="range" bind:value={imageCount} min="10" max="100"/>
             </div>
@@ -152,6 +150,7 @@
             <button class="py-16 px-8 font-bold bg-pink-700 text-white text-xl mt-8" on:click={nextStep}>Continue</button>
             
         </div>
+        
 
         {:else if step == 2}
         <div class="flex flex-col w-full h-fit items-center justify-center">
