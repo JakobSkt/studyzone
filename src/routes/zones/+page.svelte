@@ -6,6 +6,12 @@
     import zones from '$lib/examples.json';
     import { goto } from '$app/navigation';
 
+    import vibrantLofi from '$lib/images/vibrantLofi.jpg';
+    import dark from '$lib/images/dark.jpg';
+    import snowfall from '$lib/images/snowfall.jpg';
+
+    let bgImages = [vibrantLofi, dark, snowfall];
+
 </script>
 
 <div class="hero w-screen h-screen flex flex-col justify-start items-center pb-20 mb-48 bg-zinc-100 dark:bg-cyan-950">
@@ -17,7 +23,7 @@
 
     <div class="w-screen h-screen flex flex-row gap-12 justify-center items-center">
             {#each zones as zone}
-                <ZoneCard title={zone.title} slug={zone.slug} bg={zone.bg} music={zone.music} scenery={zone.scenery}/>
+                <ZoneCard id={zone.id} title={zone.title} slug={zone.slug} bg={zone.bg} music={zone.music} scenery={zone.scenery} images={bgImages}/>
             {/each}
     </div>
 
