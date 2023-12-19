@@ -1,7 +1,6 @@
 <script>
     import "../app.css"
     import { goto } from '$app/navigation';
-    import { imageTime } from '../lib/store.js'
 
 
     let imageCount = 20 
