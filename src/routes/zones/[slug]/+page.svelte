@@ -1,10 +1,11 @@
 <script>
     import { goto } from '$app/navigation';
-    import { ToolView } from '../../../lib/ToolView.svelte';
+    import ActiveZone from '$lib/activeZone.svelte';
     import { zoneTime } from '../../../lib/store'
 
     export let data
-    // console.log(data)
+    // console.log(data.photos)
+    // console.log(data.theme)
 
     let musicUrl = ""
     switch(data.theme) {
@@ -23,12 +24,5 @@
 </script>
 
 <main>
-    <h1 class="font-bold text-4xl text-amber-500 text-center"> {data.theme} </h1>
-    <p class="text-zinc-600 text-xl text-center"> Zoning for {$zoneTime} minutes</p>
-
-    <ToolView data={data} photoTimer={$zoneTime} musicUrl={musicUrl}/>
-
-    <div class="w-screen h-fit p-12">
-        <iframe style="border-radius:12px" src={musicUrl} width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
+    <ActiveZone data={data.photos} photoTimer={$zoneTime} musicUrl={musicUrl}/>
 </main>

@@ -20,12 +20,8 @@
     let music = false
     export let musicUrl
 
-    $: photos = data.photos
-    $: photo = photos[photoId]
-
-    function getPhotos() {
-        
-    }
+    // $: photos = data
+    // $: photo = photos[photoId]
 
     function updatePhotos() {
             const update = setInterval(() => {

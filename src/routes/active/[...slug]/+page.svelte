@@ -1,6 +1,6 @@
 <script>
     import "../../../app.css"
-	// import ToolView from "../../../lib/toolView.svelte";
+	import ActiveZone from "../../../lib/activeZone.svelte";
     import { zoneTime } from "../../../lib/store";
     import { goto } from '$app/navigation';
 
@@ -10,5 +10,5 @@
 </script>
 
 <main>
-    <!-- <Toolview data={data} photoTimer={$zoneTime}/> -->
+    <ActiveZone data={data} photoTimer={$zoneTime}/>
 </main>
