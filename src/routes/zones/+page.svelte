@@ -1,17 +1,15 @@
 <script>
-	import { onMount } from 'svelte';
     import '../../app.css'
-    import Calculator from '../../lib/calculator.svelte';
-    import ZoneCard from '../../lib/zoneCard.svelte';
-    import zones from '$lib/examples.json';
-    import { goto } from '$app/navigation';
+    import Calculator from '../../lib/calculator.svelte'
+    import ZoneCard from '../../lib/zoneCard.svelte'
+    import zones from '$lib/examples.json'
+    import { goto } from '$app/navigation'
 
-    import vibrantLofi from '$lib/images/vibrantLofi.jpg';
-    import dark from '$lib/images/dark.jpg';
-    import snowfall from '$lib/images/snowfall.jpg';
+    import vibrantLofi from '$lib/images/vibrantLofi.jpg'
+    import dark from '$lib/images/dark.jpg'
+    import snowfall from '$lib/images/snowfall.jpg'
 
-    let bgImages = [vibrantLofi, dark, snowfall];
-
+    let bgImages = [vibrantLofi, dark, snowfall]
 </script>
 
 <div class="hero w-screen h-screen flex flex-col justify-start items-center pb-20 mb-48 bg-zinc-100 dark:bg-cyan-950">

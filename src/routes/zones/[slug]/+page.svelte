@@ -1,6 +1,6 @@
 <script>
     import { goto } from '$app/navigation';
-    import ToolView from '../../../lib/toolView.svelte';
+    import { ToolView } from '../../../lib/ToolView.svelte';
     import { zoneTime } from '../../../lib/store'
 
     export let data
