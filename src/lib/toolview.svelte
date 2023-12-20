@@ -17,6 +17,9 @@
     let description = false
     let started = false
 
+    let music = false
+    export let musicUrl
+
     $: photos = data.photos
     $: photo = photos[photoId]
 
@@ -121,15 +124,30 @@
         </div>
     {/if}
 
+    
+    <div class:musicActive={music} class="fixed right-0 inset-y-0 my-auto bg-zinc-900 rounded-xl" id="musicPanel">
+        {#if music}
+            <svg on:click={() => music = !music} class="absolute left-0 inset-y-0 my-auto w-12 h-12 stroke-white cursor-pointer -ml-4 bg-zinc-900 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+            {:else}
+                <svg on:click={() => music = !music} class="absolute left-0 inset-y-0 my-auto w-12 h-12 stroke-white cursor-pointer -ml-12 bg-zinc-900 rounded-full p-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+        {/if}
+        <iframe class="py-8 px-8" style="border-radius:12px" src={musicUrl} width="100%" height="90%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    
+
     <div class="fixed bottom-0 right-0 flex flex-row gap-4 m-4">
 
         <svg on:click={nextPhoto} class="w-12 h-12 stroke-zinc-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062A1.125 1.125 0 013 16.81V8.688zM12.75 8.688c0-.864.933-1.405 1.683-.977l7.108 4.062a1.125 1.125 0 010 1.953l-7.108 4.062a1.125 1.125 0 01-1.683-.977V8.688z" />
-          </svg>
+        </svg>
           
         <svg on:click={() => paused = !paused} class="w-12 h-12 stroke-zinc-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9v6m-4.5 0V9M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
+        </svg>        
             
         <svg on:click={() => description = !description} class="w-12 h-12 stroke-zinc-200 cursor-pointer" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
@@ -154,6 +172,15 @@
         border-top: 0;
         border-left: 0;
         background: #18181b;
+    }
+
+    #musicPanel {
+        transform: translateX(100%);
+        transition: 500ms;
+    }
+
+    #musicPanel.musicActive {
+        transform: translateY(0);
     }
 
 </style>

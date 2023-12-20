@@ -1,6 +1,7 @@
 <script>
     import { zoneTime } from "./store"
     import { goto } from '$app/navigation'
+	import { onMount } from "svelte";
     // import bgImg from '$lib/images/vibrantLofi.jpg'
 
     export let id
@@ -12,6 +13,8 @@
 
     export let images
     console.log(images)
+
+    let svgWhite = true
 
     let active = false
 
@@ -74,14 +77,26 @@
         }
     }
 
+    onMount(() => {
+        if(slug == 'vibrantlofi') {
+            svgWhite = false
+        }
+    })
+
 </script>
 
 <main>
     <div on:click={handleInfo} class:active={active} class="group cursor-pointer relative px-40 py-60 bg-zinc-200 backdrop-blur-xl rounded-xl drop-shadow-sm grayscale-60 hover:grayscale-0 hover:shadow-2xl hover:scale-105 fisrt:grayscale-0 transition duration-300 bg-cover " style="background-image: url({images[id-1]})" id="zoneCard">
         <div class="absolute flex flex-col gap-2 px-4 py-4 bg-zinc-400/50 backdrop-blur-sm bottom-0 inset-x-0 rounded-xl" id="cardInfo">
-            <svg on:click={() => active = false} class:active={active} class="z-40 absolute w-12 h-12 stroke-zinc-700 self-center -mt-20 opacity-0 transition duration-200 hover:scale-105" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-            </svg>
+            {#if svgWhite}
+                <svg on:click={() => active = false} class:active={active} class="z-40 absolute w-12 h-12 stroke-white self-center -mt-20 opacity-0 transition duration-200 hover:scale-105" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            {:else}
+                <svg on:click={() => active = false} class:active={active} class="z-40 absolute w-12 h-12 stroke-zinc-700 self-center -mt-20 opacity-0 transition duration-200 hover:scale-105" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            {/if}
               
             <h1 class="text-3xl font-bold text-white "> {title} </h1>
             <div class="flex flex-row gap-2">
@@ -123,9 +138,6 @@
     #zoneCard #cardInfo {
         transform: translateY(60%);
         transition: 500ms;
-    }
-
-    #zoneCard:hover #cardInfo {
     }
 
     #zoneCard.active #cardInfo {
