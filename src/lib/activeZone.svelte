@@ -20,8 +20,8 @@
     let music = false
     export let musicUrl
 
-    // $: photos = data
-    // $: photo = photos[photoId]
+    $: photos = data
+    $: photo = photos[photoId]
 
     function updatePhotos() {
             const update = setInterval(() => {
@@ -46,7 +46,7 @@
     } 
 
     function goHome() {
-        goto('/')
+        goto('/zones')
     }
 
     onMount(() => {

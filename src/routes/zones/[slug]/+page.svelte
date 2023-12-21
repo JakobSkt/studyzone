@@ -4,8 +4,8 @@
     import { zoneTime } from '../../../lib/store'
 
     export let data
-    // console.log(data.photos)
-    // console.log(data.theme)
+    //console.log(data.photos)
+    //console.log(data.theme)
 
     let musicUrl = ""
     switch(data.theme) {
