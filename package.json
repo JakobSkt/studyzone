@@ -26,6 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@vercel/postgres": "^0.5.1",
 		"unsplash-js": "^7.0.18"
 	}
 }
