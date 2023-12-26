@@ -36,20 +36,18 @@ async function seed() {
 }
 
 export async function load() {
+    try {
+        const { rows: users } = await sql`SELECT * FROM users`;
+        return {users: users};
+    } catch (error) {
+        if(error?.message === 'relation "users" does not exist') {
+            console.log('Seeding database...');
+            await seed();
+            const { rows: users } = await sql`SELECT * FROM users`;
 
-    await seed();
-    // try {
-    //     const { rows: users } = await sql`SELECT * FROM users`;
-    //     return {users: users};
-    // } catch (error) {
-    //     if(error?.message === 'relation "users" does not exist') {
-    //         console.log('Seeding database...');
-    //         await seed();
-    //         const { rows: users } = await sql`SELECT * FROM users`;
-
-    //         return { users: users};
-    //     } else {
-    //         throw error;
-    //     }
-    // }
+            return { users: users};
+        } else {
+            throw error;
+        }
+    }
 }
