@@ -45,8 +45,8 @@ export async function load() {
             const { rows: users } = await sql`SELECT * FROM users`;
 
             return users;
-        };
-    } else {
-        throw error;
+        } else {
+            throw error;
+        }
     }
 }
