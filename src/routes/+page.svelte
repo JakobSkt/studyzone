@@ -6,7 +6,7 @@
 
     export let data
 
-    $: console.log(data)
+    $: console.log(data?.users)
 </script>
 
 <div class="hero w-screen h-screen mx-auto items-center justify-center flex flex-col">

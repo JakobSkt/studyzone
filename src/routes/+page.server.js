@@ -3,7 +3,7 @@ import { sql } from '@vercel/postgres';
 async function seed() {
     const createTable =  await sql`
         CREATE TABLE IF NOT EXISTS users (
-            id serial PRIMARY KEY,
+            id SERIAL PRIMARY KEY,
             name varchar(255) NOT NULL,
             email varchar(255) UNIQUE NOT NULL,
             "createdAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
@@ -38,13 +38,13 @@ async function seed() {
 export async function load() {
     try {
         const { rows: users } = await sql`SELECT * FROM users`;
-        return users;
+        return {users: users};
     } catch (error) {
         if(error?.message === 'relation "users" does not exist') {
             await seed();
             const { rows: users } = await sql`SELECT * FROM users`;
 
-            return users;
+            return { users: users};
         } else {
             throw error;
         }
