@@ -5,6 +5,9 @@ export default {
     extend: {
       grayscale: {
         60: '60%',
+      },
+      screens: {
+        'xs': '450px'
       }
     },
   },
