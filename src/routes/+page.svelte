@@ -2,10 +2,18 @@
     import '../app.css'
     import Calculator from '../lib/calculator.svelte';
     import heroImg from '$lib/images/morphis-glasses-smartphone-and-notebook.png'
+    import { goto } from '$app/navigation'
     // import heroImg from '$lib/images/haze-school-subjects-and-items-for-studying-1.png'
 
     export let data 
-    $: console.log(data)
+
+    function gotoZones() {
+        if(data.isAuthenticated == false) {
+            goto('/api/auth/login')
+        } else {
+            goto('/zones')
+        }
+    }
 </script>
 
 <div class="hero w-screen h-screen mx-auto items-center justify-center flex flex-col">
@@ -22,9 +30,9 @@
         </div>
     </div>
 
-    <a href="/zones" class="group cursor-pointer py-4 px-16 rounded-full font-bold text-white text-xl bg-gradient-to-r from-red-400 to-orange-400 transition hover:scale-105 hover:drop-shadow-lg">
+    <button on:click={gotoZones} class="group cursor-pointer py-4 px-16 rounded-full font-bold text-white text-xl bg-gradient-to-r from-red-400 to-orange-400 transition hover:scale-105 hover:drop-shadow-lg">
         <p class=" text-white transition"> Create my zone </p>
-    </a>
+    </button>
 
     <div class="absolute flex flex-row gap-16 bottom-0 m-20 dark:stroke-white dark:text-white">
         <div class="flex flex-row gap-4 p-4">

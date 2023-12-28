@@ -11,13 +11,26 @@
     import snowfall from '$lib/images/snowfall.jpg'
 
     let bgImages = [vibrantLofi, dark, snowfall]
+    
+    export let data
+
+    $: data.isAuthenticated == false ? goto('/') : null
 </script>
 
-<div class="hero w-screen h-dvh flex flex-col justify-start items-center pb-20 mb-48 bg-zinc-100 dark:bg-cyan-950">
+<div class="hero w-screen h-screen flex flex-col justify-start items-center pb-20 mb-48 bg-zinc-100 dark:bg-cyan-950">
     
     <div class="w-fit h-fit p-12 mt-12 text-slate-600 dark:text-white">
         <h1 class="text-5xl font-bold">Available StudyZones</h1>
         <span class="text-gray-400"> Choose between the 3 predefined rooms </span>
+    </div>
+
+    <div class="absolute top-0 left-0 flex flex-col gap-2 p-16">
+        <div class="flex flex-row items-center gap-2 text-slate-600 dark:text-white">
+            <span class="text-gray-400"> Welcome back </span>
+            <h1 class="text-xl font-bold">Jakob</h1>
+        </div>
+
+        <a href="/api/auth/logout" class="font-bold text-white cursor-pointer hover:text-zinc-400 transition duration-200"> Sign out </a>
     </div>
 
     <div class="w-screen flex flex-row gap-12 justify-center items-center">

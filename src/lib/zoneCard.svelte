@@ -12,7 +12,7 @@
     export let scenery
 
     export let images
-    console.log(images)
+    // console.log(images)
 
     let svgWhite = true
 
