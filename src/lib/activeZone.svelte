@@ -123,7 +123,7 @@
     
     <div class:musicActive={music} class="fixed right-0 inset-y-0 my-auto bg-zinc-900 rounded-xl" id="musicPanel">
         {#if music}
-            <svg on:click={() => music = !music} class="absolute left-0 inset-y-0 my-auto w-12 h-12 stroke-white cursor-pointer -ml-4 bg-zinc-900ç rounded-full p-2 hover:bg-white hover:stroke-zinc-900 transition duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
+            <svg on:click={() => music = !music} class="absolute left-0 inset-y-0 my-auto w-12 h-12 stroke-white cursor-pointer -ml-4 bg-zinc-900 rounded-full p-2 hover:bg-white hover:stroke-zinc-900 transition duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" data-slot="icon">
                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
             {:else}
