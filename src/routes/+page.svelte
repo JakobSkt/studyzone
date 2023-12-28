@@ -4,6 +4,8 @@
     import heroImg from '$lib/images/morphis-glasses-smartphone-and-notebook.png'
     // import heroImg from '$lib/images/haze-school-subjects-and-items-for-studying-1.png'
 
+    export let data 
+    $: console.log(data)
 </script>
 
 <div class="hero w-screen h-screen mx-auto items-center justify-center flex flex-col">
