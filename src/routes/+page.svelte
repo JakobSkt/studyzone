@@ -16,7 +16,7 @@
     }
 </script>
 
-<div class="hero lg:w-screen h-screen lg:h-screen mx-auto items-center justify-center flex flex-col">
+<div class="hero lg:w-screen h-screen mx-auto items-center justify-center flex flex-col">
     <div class="flex flex-col lg:flex-row justify-center items-center">
         <div class="p-4 -mt-12 first-letter:xs:-mt-64 lg:mt-0 lg:-ml-96">
             <img src={heroImg} class="h-64 xs:h-full"/>
