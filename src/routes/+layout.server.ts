@@ -12,7 +12,7 @@ export async function load({request}: RequestEvent) {
         const premium = await kindeAuthClient.getPermission(request as unknown as SessionManager, "premium")
         const chatbot = await kindeAuthClient.getPermission(request as unknown as SessionManager, "chatbot")
         premiumAccount.set(premium.isGranted)
-        return { user, premium, chatbot, account }
+        return { user, premium, chatbot }
     } else {
         console.log("You are not authenticated")
     }
