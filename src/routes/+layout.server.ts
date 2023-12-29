@@ -9,6 +9,7 @@ export async function load({request}: RequestEvent) {
     if (isAuthenticated) {
         console.log("You are authenticated")
         const user = await kindeAuthClient.getUser(request as unknown as SessionManager)
+        console.log(user)
         const premium = await kindeAuthClient.getPermission(request as unknown as SessionManager, "premium")
         const chatbot = await kindeAuthClient.getPermission(request as unknown as SessionManager, "chatbot")
         premiumAccount.set(premium.isGranted)
