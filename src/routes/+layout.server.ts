@@ -1,6 +1,6 @@
 import { kindeAuthClient, type SessionManager } from "@kinde-oss/kinde-auth-sveltekit"
 import type { RequestEvent } from "@sveltejs/kit"
-import { premiumAccount } from "$lib/store"
+import { premiumAccount } from "../lib/store"
 
 export async function load({request}: RequestEvent) {
     const isAuthenticated = await kindeAuthClient.isAuthenticated(
@@ -10,10 +10,13 @@ export async function load({request}: RequestEvent) {
         console.log("You are authenticated")
         const user = await kindeAuthClient.getUser(request as unknown as SessionManager)
         console.log(user)
-        const premium = await kindeAuthClient.getPermission(request as unknown as SessionManager, "premium")
-        const chatbot = await kindeAuthClient.getPermission(request as unknown as SessionManager, "chatbot")
+        const org = await kindeAuthClient.getOrganization(request as unknown as SessionManager);
+
+        const premium = await kindeAuthClient.getPermission(request as unknown as SessionManager, "premium:account")
+        console.log(await kindeAuthClient.getPermissions(request as unknown as SessionManager))
+
         premiumAccount.set(premium.isGranted)
-        return { user, premium, chatbot }
+        return { user, premium, org}
     } else {
         console.log("You are not authenticated")
     }
