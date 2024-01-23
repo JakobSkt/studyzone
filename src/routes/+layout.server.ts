@@ -11,9 +11,12 @@ export async function load({request}: RequestEvent) {
         const user = await kindeAuthClient.getUser(request as unknown as SessionManager)
         console.log(user)
         const premium = await kindeAuthClient.getPermission(request as unknown as SessionManager, "premium")
-        const chatbot = await kindeAuthClient.getPermission(request as unknown as SessionManager, "chatbot")
+        // const chatbot = await kindeAuthClient.getPermission(request as unknown as SessionManager, "chatbot")
+        const featureflag = await kindeAuthClient.getFlag(request as unknown as SessionManager, "custom-zones")
+        const featureflag2 = await kindeAuthClient.getFlag(request as unknown as SessionManager, "theme")
+
         premiumAccount.set(premium.isGranted)
-        return { user, premium, chatbot }
+        return { user, premium, featureflag, featureflag2 }
     } else {
         console.log("You are not authenticated")
     }
