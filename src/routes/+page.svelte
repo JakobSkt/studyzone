@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <button on:click={gotoZones} class="group cursor-pointer mb-8 py-2 xs:py-4 lg:py-4 px-12 lg:px-16 rounded-full font-bold text-white text-xl bg-gradient-to-r from-red-400 to-orange-400 transition hover:scale-105 hover:drop-shadow-lg">
+    <button on:click={gotoZones} class="group cursor-pointer mb-8 py-2 xs:py-4 lg:py-4 px-12 lg:px-16 rounded-full font-bold text-white text-xl bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-400 hover:to-orange-400 transition hover:scale-105 hover:drop-shadow-lg">
         <p class=" text-white transition"> Create my zone </p>
     </button>
 

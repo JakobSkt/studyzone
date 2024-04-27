@@ -19,7 +19,7 @@
     $: console.log(data)
 </script>
 
-<div class="hero w-screen h-lvh lg:h-screen flex flex-col justify-start items-center pb-20 mb-48 bg-zinc-100 dark:bg-cyan-950">
+<div class="hero w-screen h-lvh lg:h-screen flex flex-col justify-start items-center pb-20 bg-zinc-100 dark:bg-cyan-950 overflow-hidden">
     
     <div class="w-screen xs:w-fit h-fit p-12 mt-12 text-slate-600 dark:text-white">
         <h1 class="text-3xl xs:text-5xl font-bold">Available StudyZones</h1>
@@ -55,15 +55,22 @@
         </div>
     {:else}
         <div class="m-12 text-zinc-600 dark:text-white flex flex-col">
-            <button disabled class="flex flex-row gap-2 items-center justify-around text-white px-6 py-2 xs:py-4 lg:py-4 rounded-full text-md xs:text-xl lg:text-3xl font-bold bg-zinc-800">
-                <svg class="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
-                </svg>                
-                <p> Create your own studyzone 
-                        <span class="text-xs lg:text-sm font-black bg-gradient-to-r from-zinc-200 to-zinc-400 text-transparent bg-clip-text">PRO</span>
-                </p>
-            </button>
-            <p class="text-zinc-200 text-center text-xs xs:text-sm lg:text-lg"> Coming soon to Premium users </p>
+            {#if data.premium.isGranted}
+                <button class="flex flex-row gap-2 items-center justify-around text-white px-6 py-2 xs:py-4 lg:py-4 rounded-full bg-gradient-to-r from-red-400 to-orange-400 drop-shadow-lg hover:from-red-500 hover:to-orange-500 hover:drop-shadow-xl transition-all text-md xs:text-xl lg:text-3xl font-bold">              
+                    <p> Create your own studyzone </p>
+                </button>
+            {:else}
+                <button disabled class="flex flex-row gap-2 items-center justify-around text-white px-6 py-2 xs:py-4 lg:py-4 rounded-full text-md xs:text-xl lg:text-3xl font-bold bg-zinc-800">
+                    <svg class="w-6 h-6 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 1.5a5.25 5.25 0 0 0-5.25 5.25v3a3 3 0 0 0-3 3v6.75a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3v-6.75a3 3 0 0 0-3-3v-3c0-2.9-2.35-5.25-5.25-5.25Zm3.75 8.25v-3a3.75 3.75 0 1 0-7.5 0v3h7.5Z" clip-rule="evenodd" />
+                    </svg>                
+                    <p> Create your own studyzone 
+                            <span class="text-xs lg:text-sm font-black bg-gradient-to-r from-zinc-200 to-zinc-400 text-transparent bg-clip-text">PRO</span>
+                    </p>
+                </button>
+                <p class="text-zinc-200 text-center text-xs xs:text-sm lg:text-lg"> Coming soon to Premium users </p>
+            {/if}
+            
         </div>
     {/if}
     
